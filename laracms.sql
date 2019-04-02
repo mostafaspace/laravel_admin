@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2018 at 10:31 AM
+-- Generation Time: Apr 02, 2019 at 02:56 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -342,7 +342,9 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (3, 2),
 (4, 1),
 (4, 2),
-(5, 1);
+(5, 1),
+(6, 1),
+(6, 2);
 
 -- --------------------------------------------------------
 
@@ -454,7 +456,8 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 (2, 1),
-(3, 1);
+(3, 1),
+(5, 1);
 
 -- --------------------------------------------------------
 
@@ -515,16 +518,16 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `job` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `mobile` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `age` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `about` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `url` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `job` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mobile` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `age` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `about` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `city_id` int(10) UNSIGNED DEFAULT NULL,
   `country_id` int(10) UNSIGNED DEFAULT NULL,
   `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'user',
-  `dimensions` text COLLATE utf8_unicode_ci NOT NULL,
+  `dimensions` text COLLATE utf8_unicode_ci,
   `status` enum('0','1') COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   `confirmation_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -539,7 +542,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `email`, `name`, `password`, `job`, `mobile`, `age`, `about`, `url`, `address`, `city_id`, `country_id`, `type`, `dimensions`, `status`, `confirmation_code`, `remember_token`, `created_at`, `updated_at`) VALUES
 (2, 'mostafamagdy', 'mostafa.torra@gmail.com', 'mostafa', '$2y$10$HfhD.yQumISJaeHik23vfe9GZqYMI0LBUyOouK8iMTseroLB7GBDy', '', '', '', '', '', '', NULL, NULL, 'user', '', '0', NULL, 'Y3jN6NIBVU6xmyo11AdYVU1GK8Sc1E2TpTEUSWYM0RoF9CCcdkgsL7CjOMJt', '2016-03-14 12:25:17', '2016-08-30 16:53:15'),
 (3, 'mostafamagdy1', 'admin@example.com', 'Mostafa', '$2y$10$1jjEpCJn66gM8FlLRFXf1.N/qRe50omeJ6y19OskdyaSjvgOhNwRe', '', '', '', '', '', '', NULL, NULL, 'user', '', '0', NULL, NULL, '2016-03-14 12:26:35', '2016-03-14 12:26:35'),
-(5, '', 'test@test.com', 'test', '$2y$10$ZoyiEAiv6eWtj3p2Q/HuIOfb8MQB6m8sj.Tcizj.lU0IhNFOAx1I6', '', '', '', '', '', '', NULL, NULL, 'user', '', '0', NULL, 'MkNDc6zLG2YTpNrPOhKOUKWYeauRYxwklJWoZ2RveyLR9GHsthuuqJKpcwXD', '2016-03-22 11:36:52', '2016-03-22 12:35:06');
+(5, 'test', 'test@test.com', 'test', '$2y$10$P5kMYvC5eZahJbljc3eaS.NYyuRDmP8cbcpe/L/4ANsHT0wEOmDHa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'user', '', '0', NULL, 'MkNDc6zLG2YTpNrPOhKOUKWYeauRYxwklJWoZ2RveyLR9GHsthuuqJKpcwXD', '2016-03-22 11:36:52', '2019-04-01 22:41:19');
 
 -- --------------------------------------------------------
 
