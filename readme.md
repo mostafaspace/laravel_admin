@@ -5,3 +5,6 @@
 - Navigate to: /admin
 - user: test@test.com
 - pass: 123456
+
+Screenshots:
+http://mostafa.space/projects/laracms/
